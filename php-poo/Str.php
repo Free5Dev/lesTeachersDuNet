@@ -1,16 +1,16 @@
 <?php 
     class Str{
 
-        public static function upper($string){
-            return mb_strtoupper($string);
+        public static function upper($str){
+            return mb_strtoupper($str);
         }
-        public static function lower($string){
-            return mb_strtolower($string);
+        public static function lower($str){
+            return mb_strtolower($str);
         }
-        public static function lenght($string){
-            return mb_strlen($string);
+        public static function length($str){
+            return mb_strlen($str);
         }
     }
-    $str=new Str();
-    // echo $str->upper("Toto est COOL");
-    echo Str::upper("Toto est COOL");
+    // var_dump((new Str)->upper("toto est cool"));
+    // les static nomde la classe ::method
+    var_dump(Str::upper("toto est moche"));

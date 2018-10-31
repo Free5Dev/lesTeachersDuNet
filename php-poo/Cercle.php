@@ -1,9 +1,7 @@
 <?php 
-    class Cercle extends Forme{
-        private $cote=4;
+    class Cercle extends Form{
+        private $rayon=3;
         public function aire(){
-            return M_PI*($this->cote**2);
+            return M_PI * $this->rayon**2;
         }
-        
     }
-    echo (new Cercle)->aire();

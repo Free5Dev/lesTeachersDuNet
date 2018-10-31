@@ -1,21 +1,26 @@
 <?php 
+
+    // inclution des class papa et enfant dans l'order
+    // class papa est appele class mere ou supper class
+    // class enfant est appele sous class ou class derivée
     require 'Papa.php';
     require 'Enfant.php';
-    // inclusion des portion de forme
-    require 'Forme.php';
-    require 'Triangle.php';
+    $enfant= new Enfant;
+    var_dump($enfant->toto()); 
+
+    // ----------------------------------------------------------------------------
+    require 'Form.php';
     require 'Carre.php';
     require 'Cercle.php';
-    // 
+    require 'Triangle.php';
+
+    echo (new Carre)->aire()."<br/>";
+    
+    echo (new Triangle)->aire()."<br/>";
+    
+    echo (new Cercle)->aire()."<br/>";
+    // -----------------------------------------------------------------------------
     require 'Person.php';
     require 'Policier.php';
-   // $enfant=new Enfant();
-    // var_dump((new Enfant())->toto());
-   echo (new Enfant())->toto()." <br/>";
-//    pour les portions de forme
-echo (new Carre)->aire()."<br/>";
-// echo (new Cercle)->aire()."<br/>";
-echo (new Triangle)->aire();
-
-// 
-echo (new Policier('said','soumah',2552,"sergent"))->fullName();
+    echo (new Policier("SaidDev","Prod",12,"Sergent"))->fullName();
+    

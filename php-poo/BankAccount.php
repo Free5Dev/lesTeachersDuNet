@@ -1,43 +1,37 @@
 <?php 
+
     class BankAccount{
-        // les variables en poo on les appeles attributs
-        private static $tax=0.8;
-        const TAUX=0.007;
+        // les attributs
         private $accountNumber;
         private $balance=0;
-
-        // les constructeurs
+        // les constantes comme leurs noms l'indiquent on ne peut pas modifier leurs valeurs
+        const TAX=0.8;
+        // les constructeurs pour construire l'objet
         public function __construct($accountNumber){
             $this->accountNumber=$accountNumber;
-            BankAccount::$tax=0.7;
         }
-        public static function getTax(){
-            return static::$tax;
+        public static function getTAX(){
+            return static::TAX;
         }
-        // les setteurs pour permettre de faire une modification
+        // les setteurs pour modifier l'attribut de la balance et effectuer des verifications
         public function setBalance($balance){
-            // verification de la balance
             if($balance<10000){
-                throw new  Exception("L'argent est trop petit");
+                throw new Exception("L'argent est trop petit");
             }
-            $this->balance=$balance;
+            return $this->balance=$balance;
         }
-        // les getteurs
+        // les getteurs pour retourner la valeur de la balance sans pouvoir acceder aux attributs
         public function getBalance(){
-            return $this->balance *10;
+            return $this->balance;
         }
-        public function getAccountNumber(){
-            return $this->accountNumber;
-        }
-        public function setAccountNumber($accountNumber){
-            $this->accountNumber=$accountNumber();
-        }
+
     }
-    // l'objet compte de honore
-    $compteDeHonorer=new BankAccount('547964648584545454554554');
-    var_dump($compteDeHonorer->getAccountNumber());
-    $compteDeHonorer->setBalance('500000');
-    var_dump($compteDeHonorer->getBalance());
-    // les variables de classe ou les constantes
-    var_dump(BankAccount::getTax());
-    var_dump(BankAccount::TAUX);
+    $compteSaid=new BankAccount("00157410148541028541028");
+    var_dump($compteSaid);
+    // pour modifier l'attribut de la balance à travers le setteurs
+    $compteSaid->setBalance(2000000000);
+    var_dump($compteSaid);
+    // pour afficher la nouvelle balalnce à travers le getteurs
+    var_dump($compteSaid->getBalance());
+    // affichage de la const
+    var_dump(BankAccount::getTAX());

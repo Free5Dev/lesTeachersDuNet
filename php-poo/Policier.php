@@ -1,14 +1,16 @@
 <?php 
-    class Policier extends Person{
-        private $grade; 
 
+    class Policier extends Person{
+        private $grade;
+        // redefinition du construct
         public function __construct($firstName,$lastName,$age,$grade){
+            // pour faire reference à l'objet courant
             parent::__construct($firstName,$lastName,$age);
             $this->grade=$grade;
         }
+        // redefinition  de la methode fullName de person au sein de policier
         public function fullName(){
-           // echo $this->firstName." ".$this->lastName;
-            //printf("%s %s, policier",$this->firstName,$this->lastName);
-            return parent::fullName().", policier ".$this->grade;
+            $fullName=parent::fullName();
+            return $fullName.", Policier ".$this->grade." <br/>"; 
         }
     }

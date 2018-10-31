@@ -1,7 +1,8 @@
 <?php 
+
     class Papa{
 
         protected function getNombreDeTete(){
-            return 5;
+            return 1;
         }
     }

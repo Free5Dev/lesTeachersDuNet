@@ -1,9 +1,7 @@
 <?php 
-    class Carre extends Forme{
+    class Carre extends Form{
         private $cote=4;
         public function aire(){
-            return $this->cote*$this->cote;
-            // return $this->cote**2;
-        //    return  pow($this->cote, 2);
+            return $this->cote**2;
         }
     }

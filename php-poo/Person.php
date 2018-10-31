@@ -1,59 +1,58 @@
 <?php 
-    class Person{
-        public $firstName;
-        public $lastName;
-        public $age;
-        // les variables static
-        public static $totalCount=0;
 
-        // les constructeurs
+    class Person{
+
+        // les variables en poo sont appelés attributs
+        private $firstName;
+        private $lastName;
+        private $age;
+        public static $totalCount=0;
+        // les constructeurs sont appeles à chaque fois que l'on crée un objet de la class
         public function __construct($firstName,$lastName,$age){
+            // pour faire reference à l'objet courant
             $this->firstName=$firstName;
             $this->lastName=$lastName;
             $this->age=$age;
-            // pour savoir le nom de variable static qui as été fait
+            // on increment la variable total count créer
             static::$totalCount++;
         }
-        public static function getTotalCount(){
-            return static::$totalCount;
+        // on utilise le getteur pour retourner la variable totalCount comme cest private
+        public static function  getTotalCount(){
+             return static::$totalCount;
         }
-        // les methodes en oop
-        public function danser(){
-            echo $this->firstName." est entrain de danser";
+        // les functions en poo sont appplélés methodes
+        public function dancer(){
+            echo $this->firstName." est entrain de danser <br/>";
         }
-        // une methode qui retourne le nom complet
+        // methode qui affiche le nom au complet
         public function fullName(){
-            echo $this->firstName." ".$this->lastName;
-            //printf("%s %s",$this->firstName,$this->lastName);
+            return $this->lastName." ".$this->firstName." "; 
+        }
+        // les getteurs permettent que retour la valuer de l'attribut et les setteurs pour faire une  modification
+        public function getAge(){
+        //    pour retourner l'age en nombre de jours
+            return $this->age*365;
         }
     }
+    // une instance de la class Person cad un objet
+    $said=new Person("said","soumah",156);
+    var_dump($said);
+    // appel d'une methode
+    var_dump($said->dancer());
+    var_dump($said->fullName());
+    // affichage des getteurs
+    var_dump($said->getAge());
+    echo "vous avez ".$said->getAge()." jours";
+    // un autre objet de la class
+    $other=new Person("free5dev","soumah",201);
+    var_dump($other);
+    // appel d'une methode
+    var_dump($other->dancer());
+    var_dump($other->fullName());
+       // affichage des getteurs
+       var_dump($other->getAge());
+       echo "vous avez ".$other->getAge()." jours";
 
-    // instance de la classe person cad on créer un objet person
-    $person=new Person("said","soumah",126);
-    var_dump($person->firstName);
-    var_dump($person->lastName);
-    var_dump($person->age);
-
-    // on execute la methode danser
-    $person->danser();
-    
-    // methode d'affiche du nom complet
-    $person->fullName();
-
-
-
- // instance de la classe person cad on créer un objet person
-    $person2=new Person("Alain","Yout",124);
-    var_dump($person2->firstName);
-    var_dump($person2->lastName);
-    var_dump($person2->age);
-
-    // on execute la methode danser
-    $person2->danser();
-
-    // methode d'affiche du nom complet
-    $person2->fullName();
-    // pour executer une variable static on met nom de class::nom de la variable
-echo "<br/>".Person::getTotalCount();
-   
- 
+    // pour appler une methode static on utilise le nom de la classe suivie ::
+        var_dump(Person::getTotalCount());
+       echo "vous avez ".Person::getTotalCount()." personnes créer<br/>";
